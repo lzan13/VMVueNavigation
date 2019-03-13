@@ -1,0 +1,95 @@
+/**
+ * 定义样式变量
+ */
+
+// 通用尺寸
+// --------------------------------------------------- 
+
+
+
+// 通用文本颜色
+// ---------------------------------------------------
+// 亮色
+@text-light: #fefefe;
+@title-light: #fefefe;
+@subtitle-light:#e8e8e8;
+@desc-light: #d8d8d8;
+// 暗色
+@text-dark: #363636;
+@title-dark: #363636;
+@subtitle-dark: #525252;
+@desc-dark: #636363;
+
+// 活动相关颜色
+@inactive-light: #e8e8e8;
+@inactive-dark: rgba(54, 54, 54, .6);
+
+@active-light: #fefefe;
+@active-dark: rgba(54, 54, 54, .8);
+
+// 超链接激活颜色
+@active-link: #f59353;
+@normal-link: #63c4fc;
+
+// Copyright 颜色配置
+@copyright-bg: rgba(54, 54, 54, .6);
+@copyright-text: #d8d8d8;
+
+// 半透明导航背景
+@top-nav-bg: rgba(54, 54, 54, 0.6);
+@side-nav-bg: rgba(222, 222, 222, 0.6);
+
+// 标签颜色
+@tag-bg-light: #f8f8f8;
+@tag-bg-dark: #9a9a9a;
+@tag-light: #fefefe;
+@tag-dark: #898989;
+
+//背景色
+@bg-author: #efefef;
+@bg-light: #fefefe;
+@bg-dark: #363636;
+@bg-grey: #a8a8a8;
+@bg-toc: #efefef;
+@bg-header: #3295d9;
+@bg-translucence-light: rgba(255, 255, 255, 0.5);
+@bg-translucence-dark: rgba(54, 54, 54, 0.5);
+@bg-translucence-grey: rgba(127, 127, 127, 0.5);
+
+// 装饰间隔颜色
+@decoration-light: rgba(255, 255, 255, 0.2);
+@decoration-dark: rgba(54, 54, 54, 0.2);
+
+// 阴影颜色
+@shadow-light: rgba(255, 255, 255, 0.6);
+@shadow-light-hover: rgba(255, 255, 255, 0.8);
+
+@shadow-dark: rgba(54, 54, 54, 0.6);;
+@shadow-dark-hover: rgba(54, 54, 54, 0.8);
+
+// 封装阴影效果
+// ---------------------------------------------------
+.box-shadow(@x:0px, @y: 5px, @blur: 24px, @size:2px, @alpha: 0.08){
+  box-shadow: @x @y @blur @size rgba(30, 30, 30, @alpha);
+  -webkit-box-shadow: @x @y @blur @size rgba(30, 30, 30, @alpha);
+}
+.card-shadow(){
+  .box-shadow(0px, 2px, 24px, 2px, 0.1)
+}
+.card-shadow-hover(){
+  .box-shadow(0px, 2px, 42px, 2px, 0.25)
+}
+  
+// 图片遮罩样式
+.cover-shape() {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+  
+
+
+

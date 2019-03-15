@@ -1,11 +1,18 @@
 <!-- 组件模板 -->
 <template>
     <div id="app">
-        <Header></Header>
-        <div class="content">
-            <div class="container"></div>
+        <!-- 左边导航 -->
+        <div id="app-left">
+            <Sidebar></Sidebar>
         </div>
-        <router-view/>
+        <!-- 右边顶部和内容 -->
+        <div id="app-right">
+            <Header></Header>
+            <div class="content">
+                <router-view />
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -13,15 +20,42 @@
 <script>
 // 引入组件
 import Header from "./components/Header.vue";
+import Sidebar from "./components/Sidebar.vue";
 export default {
-  name: "App",
-  components: {
-    // 注册组件
-    Header
-  }
+    name: "App",
+    components: {
+        // 注册组件
+        Header,
+        Sidebar,
+    },
 };
 </script>
 
 <!-- 样式 -->
 <style lang="less">
+#app {
+    display: flex;
+    #app-left {
+        flex: none;
+        width: 220px;
+        z-index: 9;
+    }
+    #app-right {
+        flex: 1;
+    }
+}
+
+@media (max-width: 960px) {
+    #app {
+        display: block;
+        #app-left {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: @bg-translucence-dark;
+        }
+    }
+}
 </style>

@@ -7,14 +7,14 @@
 
 <!-- 脚本 -->
 <script>
-  export default {
-    name: 'About',
-    data () {
-      return {
-        msg: '关于这里，关于我'
-      }
-    }
-  }
+export default {
+    name: "About",
+    data() {
+        return {
+            msg: "关于这里，关于我",
+        };
+    },
+};
 </script>
 
 <!-- 样式 -->

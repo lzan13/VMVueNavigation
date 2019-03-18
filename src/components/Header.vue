@@ -67,11 +67,11 @@ export default {
                 {
                     title: "设计",
                     engines: [
+                        { action: "http://huaban.com/search/?q=", name: "花瓣", hint: "喜欢微软就用Bing" },
+                        { action: "https://www.zcool.com.cn/search/content?&word=", name: "站酷", hint: "神马搜索" },
                         { action: "https://www.csswinner.com/search/", name: "CSSWinner", hint: "输入快递单号查询" },
-                        { action: "https://www.google.com/search?q=", name: "Google", hint: "最强大的搜索引擎" },
-                        { action: "https://cn.bing.com/search?q=", name: "Bing", hint: "喜欢微软就用Bing" },
-                        { action: "https://www.baidu.com/s?wd=", name: "百度", hint: "百度一下你就知道" },
-                        { action: "https://yz.m.sm.cn/s?q=", name: "神马", hint: "神马搜索" },
+                        { action: "https://dribbble.com/search?q=", name: "Dribbble", hint: "最强大的搜索引擎" },
+                        { action: "https://www.pinterest.com/search/pins/?q=", name: "Pinterest", hint: "百度一下你就知道" },
                     ],
                 },
                 {

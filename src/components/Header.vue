@@ -40,7 +40,7 @@
 <script>
 export default {
     name: "Header",
-    data() {
+    data () {
         return {
             categorys: [
                 {
@@ -101,7 +101,6 @@ export default {
                     title: "影音",
                     engines: [
                         { action: "https://music.163.com/#/search/m/?s=", name: "云音乐", hint: "网易云音乐" },
-                        { action: "https://www.xiami.com/search?key=", name: "虾米", hint: "虾米音乐 听见不同" },
                         { action: "http://music.baidu.com/search?key=", name: "千千", hint: "千千静听 听见世界" },
                         { action: "https://y.qq.com/portal/search.html#page=1&searchid=1&remoteplace=txt.yqq.top&t=song&w=", name: "QQ音乐", hint: "搜索 QQ 音乐" },
                         { action: "https://soundcloud.com/search?q=", name: "SoundCloud", hint: "SoundCloud 免费音乐和播客" },
@@ -112,7 +111,6 @@ export default {
                         { action: "http://www.zimuzu.io/search/index?keyword=", name: "字幕组", hint: "" },
                         { action: "http://www.rarbt.com/index.php/search/index.html?search=", name: "RARBT", hint: "RARBT下载站" },
                         { action: "https://share.dmhy.org/topics/list?keyword=", name: "动漫", hint: "动漫花园资源网" },
-                        { action: "https://vimeo.com/search?q=", name: "Vimeo", hint: "Vimeo 高质量视频站点" },
                         { action: "https://www.youtube.com/results?search_query=", name: "YouTube", hint: "YouTube 站点" },
                     ],
                 },
@@ -133,7 +131,6 @@ export default {
                 {
                     title: "出行",
                     engines: [
-                        { action: "https://ditu.amap.com/search?query=", name: "百度地图", hint: "百度地图" },
                         { action: "https://ditu.amap.com/search?query=", name: "高德地图", hint: "高德地图" },
                         { action: "http://search.qyer.com/index?wd=", name: "穷游", hint: "穷游 旅游攻略分享社区" },
                         { action: "http://www.mafengwo.cn/search/s.php?q=", name: "马蜂窝", hint: "马蜂窝 自由行攻略" },
@@ -159,10 +156,10 @@ export default {
         };
     },
     methods: {
-        tabChange: function(index) {
+        tabChange: function (index) {
             this.selectIndex = index;
         },
-        search: function() {
+        search: function () {
             let url = this.selectEngines[this.selectIndex].action + this.searchContent;
             window.open(url, "_blank");
         },
@@ -267,7 +264,7 @@ export default {
                         display: inline-block;
                         height: 36px;
                         line-height: 36px;
-                        padding: 0 24px;
+                        padding: 0 16px;
                         font-size: 14px;
                         color: @bg-light;
                         border-top-left-radius: 4px;

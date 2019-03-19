@@ -35,6 +35,8 @@ export default {
 <style lang="less">
 #app {
     display: flex;
+    background: @bg-grey-white;
+
     #app-left {
         flex: none;
         width: 220px;

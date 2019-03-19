@@ -32,8 +32,9 @@ export default {
                 {
                     title: "常用推荐",
                     sites: [
-                        { name: "Dribbble", url: "https://dribbble.com/", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
-                        { name: "Dribbble", url: "https://dribbble.com/", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
+                        { name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" },
+                        { name: "Dribbble", url: "https://dribbble.com", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
+                        { name: "网易云音乐", url: "https://music.163.com", icon: "", desc: "网易云音乐" },
                     ],
                 },
                 {

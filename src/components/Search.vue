@@ -1,16 +1,16 @@
 <!-- 组件模板 -->
 <template>
-    <div id="header">
+    <div id="search">
         <div class="container">
-            <div class="header-title">
+            <div class="search-title">
                 <span>Menu</span>
                 <span>个人导航</span>
             </div>
-            <div class="header-right-link">
+            <div class="search-right-link">
                 <a href="https://hao.melove.net" target="_blank">Ctrl+D 收藏</a>
                 <a href="https://www.melove.net" target="_blank">关于我</a>
             </div>
-            <div class="header-search">
+            <div class="search-container">
                 <div class="search-tab">
                     <div class="search-tab-first">
                         <select v-model="selectEngines">
@@ -39,8 +39,8 @@
 <!-- 脚本 -->
 <script>
 export default {
-    name: "Header",
-    data () {
+    name: "search",
+    data() {
         return {
             categorys: [
                 {
@@ -48,6 +48,7 @@ export default {
                     engines: [
                         { action: "https://www.sogou.com/web?query=", name: "搜狗", hint: "无法翻墙用搜狗" },
                         { action: "https://www.google.com/search?q=", name: "Google", hint: "最强大的搜索引擎" },
+                        { action: "https://duckduckgo.com/?q=", name: "DuckDuckGo", hint: "保护隐私的搜索引擎" },
                         { action: "https://www.baidu.com/s?wd=", name: "百度", hint: "百度一下你就知道" },
                         { action: "https://cn.bing.com/search?q=", name: "Bing", hint: "喜欢微软就用Bing" },
                         { action: "https://www.zhihu.com/search?q=", name: "知乎", hint: "有问题上知乎" },
@@ -156,10 +157,10 @@ export default {
         };
     },
     methods: {
-        tabChange: function (index) {
+        tabChange: function(index) {
             this.selectIndex = index;
         },
-        search: function () {
+        search: function() {
             let url = this.selectEngines[this.selectIndex].action + this.searchContent;
             window.open(url, "_blank");
         },
@@ -169,15 +170,15 @@ export default {
 
 <!-- 样式 -->
 <style lang="less">
-#header {
+#search {
     width: 100%;
     padding-top: 36px;
     padding-bottom: 12px;
-    background: @bg-header;
+    background: @bg-dark;
     // 头部容器
     .container {
         margin: auto;
-        .header-title {
+        .search-title {
             display: none;
             position: fixed;
             top: 0;
@@ -195,7 +196,7 @@ export default {
             }
         }
         // 头部右侧链接
-        .header-right-link {
+        .search-right-link {
             position: absolute;
             right: 16px;
             top: 8px;
@@ -211,7 +212,7 @@ export default {
             }
         }
         // 头部搜索框
-        .header-search {
+        .search-container {
             width: auto;
             margin: 8px;
             .search-tab {
@@ -317,10 +318,10 @@ export default {
                         color: @text-light;
                         font-size: 14px;
                         text-align: center;
-                        background-color: #69bdfb;
+                        background-color: @btn-green;
                         cursor: pointer;
                         &:hover {
-                            background-color: #51b1f5;
+                            background-color: @btn-green-active;
                         }
                     }
                 }
@@ -329,41 +330,41 @@ export default {
     }
 }
 @media (min-width: 1920px) {
-    #header .container {
+    #search .container {
         width: 100%;
         max-width: 1600px;
     }
 }
 @media (max-width: 1920px) {
-    #header .container {
+    #search .container {
         width: 95%;
         max-width: 1200px;
     }
 }
 @media (max-width: 1200px) {
-    #header .container {
+    #search .container {
         width: 92%;
         max-width: 768px;
-        .header-search .search-tab .search-tab-item {
+        .search-container .search-tab .search-tab-item {
             padding: 0 12px;
         }
     }
 }
 @media (max-width: 960px) {
-    #header .container {
+    #search .container {
         width: 95%;
-        .header-title {
+        .search-title {
             display: block;
         }
-        .header-right-link {
+        .search-right-link {
             display: none;
         }
     }
 }
 @media (max-width: 768px) {
-    #header .container {
+    #search .container {
         width: 95%;
-        .header-search {
+        .search-container {
             .search-tab {
                 .search-tab-item {
                     padding: 0 8px;

@@ -7,11 +7,11 @@
         </div>
         <!-- 右边顶部和内容 -->
         <div id="app-right">
-            <Header></Header>
+            <Search></Search>
             <div class="content">
                 <router-view />
-
             </div>
+            <Footer></Footer>
         </div>
     </div>
 </template>
@@ -19,14 +19,16 @@
 <!-- 脚本 -->
 <script>
 // 引入组件
-import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
+import Search from "./components/Search.vue";
 import Sidebar from "./components/Sidebar.vue";
 export default {
     name: "App",
     components: {
         // 注册组件
-        Header,
         Sidebar,
+        Search,
+        Footer,
     },
 };
 </script>
@@ -36,14 +38,17 @@ export default {
 #app {
     display: flex;
     background: @bg-grey-white;
-
     #app-left {
         flex: none;
         width: 220px;
+        position: fixed;
+        top: 0;
+        left: 0;
         z-index: 9;
     }
     #app-right {
         flex: 1;
+        margin-left: 220px;
     }
 }
 
@@ -52,11 +57,11 @@ export default {
         display: block;
         #app-left {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             background: @bg-translucence-dark;
+        }
+        #app-right {
+            margin-left: 0;
         }
     }
 }

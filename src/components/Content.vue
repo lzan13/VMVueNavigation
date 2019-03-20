@@ -28,30 +28,59 @@
 <script>
 export default {
     name: "Content",
-    data () {
+    data() {
         return {
             siteCategorys: [
                 {
+                    id: "recommend",
                     title: "常用推荐",
                     sitelist: [
+                        { name: "花瓣", url: "http://huaban.com", icon: "", desc: "陪你做生活的设计师（发现，采集，分享你喜欢的灵感美图）" },
                         { name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" },
                         { name: "Dribbble", url: "https://dribbble.com", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
-                        { name: "Pinterest", url: "https://www.pinterest.com/", icon: "", desc: "从优美的图海中洞见全球设计创意" },
-                        { name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" },
+                        { name: "Pinterest", url: "https://www.pinterest.com", icon: "", desc: "从优美的图海中洞见全球设计创意" },
                         { name: "Dribbble", url: "https://dribbble.com", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
-                        { name: "网易云音乐", url: "https://music.163.com", icon: "", desc: "网易云音乐" }
-                    ]
+                        { name: "网易云音乐", url: "https://music.163.com", icon: "", desc: "网易云音乐" },
+                    ],
                 },
                 {
-                    title: "界面设计",
-                    sitelist: [
-                        { name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" },
-                        { name: "Dribbble", url: "https://dribbble.com", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
-                    ]
-                }
-            ]
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+                {
+                    id: "design",
+                    title: "设计相关",
+                    sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
+                },
+            ],
         };
-    }
+    },
 };
 </script>
 
@@ -59,14 +88,14 @@ export default {
 <style lang="less">
 #content {
     width: 100%;
-    padding-bottom: 16px;
+    padding-bottom: 56px;
     // 头部容器
     .container {
         margin: auto;
         .site-category {
             margin-top: 36px;
-            .site-title{
-                .site-title-text{
+            .site-title {
+                .site-title-text {
                     color: @desc-dark;
                     font-size: 24px;
                     font-weight: 400;

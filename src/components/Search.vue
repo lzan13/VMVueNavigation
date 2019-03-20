@@ -2,10 +2,6 @@
 <template>
     <div id="search">
         <div class="container">
-            <div class="search-title">
-                <span>Menu</span>
-                <span>个人导航</span>
-            </div>
             <div class="search-right-link">
                 <a href="https://hao.melove.net" target="_blank">Ctrl+D 收藏</a>
                 <a href="https://www.melove.net" target="_blank">关于我</a>
@@ -178,23 +174,6 @@ export default {
     // 头部容器
     .container {
         margin: auto;
-        .search-title {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 36px;
-            line-height: 36px;
-            background: @bg-light;
-            .nav-shadow();
-            z-index: 5;
-            span {
-                font-size: 16px;
-                font-weight: 500px;
-                color: @title-dark;
-            }
-        }
         // 头部右侧链接
         .search-right-link {
             position: absolute;
@@ -353,9 +332,6 @@ export default {
 @media (max-width: 960px) {
     #search .container {
         width: 95%;
-        .search-title {
-            display: block;
-        }
         .search-right-link {
             display: none;
         }

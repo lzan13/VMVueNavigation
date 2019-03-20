@@ -1,9 +1,6 @@
 <!-- 组件模板 -->
 <template>
     <div id="sidebar">
-        <div>
-            <span class="sidebar-close">关闭</span>
-        </div>
         <ul>
             <li>
                 <router-link to="/">导航</router-link>
@@ -32,9 +29,6 @@
 }
 @media (max-width: 960px) {
     #sidebar {
-        .sidebar-close {
-            display: inline-block;
-        }
     }
 }
 </style>

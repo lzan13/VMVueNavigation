@@ -1,6 +1,6 @@
 <!-- 组件模板 -->
 <template>
-    <div id="content">
+    <div id="site">
         <div class="container">
             <div class="site-category" v-for="category in siteCategorys">
                 <!-- 常用推荐 -->
@@ -27,7 +27,7 @@
 <!-- 脚本 -->
 <script>
 export default {
-    name: "Content",
+    name: "Site",
     data() {
         return {
             siteCategorys: [
@@ -86,14 +86,14 @@ export default {
 
 <!-- 样式 -->
 <style lang="less">
-#content {
+#site {
     width: 100%;
     padding-bottom: 56px;
     // 头部容器
     .container {
         margin: auto;
         .site-category {
-            margin-top: 36px;
+            margin-top: 16px;
             .site-title {
                 .site-title-text {
                     color: @desc-dark;
@@ -135,6 +135,12 @@ export default {
                         .site-desc {
                             color: @desc-dark;
                             font-size: 12px;
+                            word-break: break-all;
+                            text-overflow: ellipsis;
+                            display: -webkit-box; /* 对象作为伸缩盒子模型显示 */
+                            -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */
+                            -webkit-line-clamp: 2; /* 显示的行数 */
+                            overflow: hidden; /* 隐藏超出的内容 */
                         }
                     }
                     &:hover {
@@ -149,7 +155,7 @@ export default {
 }
 
 @media (min-width: 1920px) {
-    #content .container {
+    #site .container {
         width: 100%;
         max-width: 1600px;
         .site-list {
@@ -158,7 +164,7 @@ export default {
     }
 }
 @media (max-width: 1920px) {
-    #content .container {
+    #site .container {
         width: 95%;
         max-width: 1200px;
         .site-list {
@@ -167,7 +173,7 @@ export default {
     }
 }
 @media (max-width: 1200px) {
-    #content .container {
+    #site .container {
         width: 92%;
         max-width: 768px;
         .site-list {
@@ -176,7 +182,7 @@ export default {
     }
 }
 @media (max-width: 960px) {
-    #content .container {
+    #site .container {
         width: 95%;
         .site-list {
             grid-template-columns: repeat(2, 1fr);
@@ -184,7 +190,7 @@ export default {
     }
 }
 @media (max-width: 768px) {
-    #content .container {
+    #site .container {
         width: 95%;
         .site-list {
             grid-template-columns: repeat(1, 1fr);

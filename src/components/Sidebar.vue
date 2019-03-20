@@ -1,14 +1,21 @@
 <!-- 组件模板 -->
 <template>
     <div id="sidebar">
-        <ul>
-            <li>
-                <router-link to="/">导航</router-link>
-            </li>
-            <li>
-                <router-link to="/About">关于</router-link>
-            </li>
-        </ul>
+        <div class="container">
+            <div class="header">
+
+            </div>
+            <div class="content">
+                <ul>
+                    <li>
+                        <router-link to="/">导航</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/About">关于</router-link>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -23,12 +30,10 @@
     height: 100vh;
     background: @bg-light;
     .nav-shadow();
-    .sidebar-close {
-        display: none;
-    }
-}
-@media (max-width: 960px) {
-    #sidebar {
+    .container {
+        width: 160px;
+        margin: auto;
+        padding-top: 56px;
     }
 }
 </style>

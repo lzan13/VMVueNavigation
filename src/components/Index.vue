@@ -1,18 +1,19 @@
 <!-- 组件模板 -->
 <template>
-    <div class="about">
-        <p>{{ msg }}</p>
+    <div id="index">
+        <Site></Site>
     </div>
 </template>
 
 <!-- 脚本 -->
 <script>
+// 引入组件
+import Site from "./Site.vue";
 export default {
-    name: "About",
-    data() {
-        return {
-            msg: "关于这里，关于我",
-        };
+    name: "Index",
+    components: {
+        // 注册组件
+        Site,
     },
 };
 </script>

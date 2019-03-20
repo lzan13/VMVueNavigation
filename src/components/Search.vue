@@ -6,27 +6,25 @@
                 <a href="https://hao.melove.net" target="_blank">Ctrl+D 收藏</a>
                 <a href="https://www.melove.net" target="_blank">关于我</a>
             </div>
-            <div class="search-container">
-                <div class="search-tab">
-                    <div class="search-tab-first">
-                        <select v-model="selectEngines">
-                            <option v-for="category in categorys" v-bind:value="category.engines">
-                                {{ category.title }}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="search-tab-scroll">
-                        <div class="search-tab-item" v-for="(engine, index) in selectEngines" :class="{'tab-active':selectIndex==index}" v-on:click="tabChange(index)">
-                            {{ engine.name }}
-                        </div>
+            <!-- 搜索 tab -->
+            <div class="search-tab">
+                <div class="search-tab-first">
+                    <select v-model="selectEngines">
+                        <option v-for="category in categorys" v-bind:value="category.engines">
+                            {{ category.title }}
+                        </option>
+                    </select>
+                </div>
+                <div class="search-tab-scroll">
+                    <div class="search-tab-item" v-for="(engine, index) in selectEngines" :class="{'tab-active':selectIndex==index}" v-on:click="tabChange(index)">
+                        {{ engine.name }}
                     </div>
                 </div>
-                <div class="search-input">
-                    <div v-for="(engine, index) in selectEngines" class="search-form" v-if="selectIndex==index">
-                        <input type="text" :placeholder="engine.hint" v-model="searchContent" onfocus="this.select()" onmouseover="this.focus()">
-                        <span v-on:click="search()">Enter/点我</span>
-                    </div>
-                </div>
+            </div>
+            <!-- 搜索框部分 -->
+            <div v-for="(engine, index) in selectEngines" class="search-form" v-if="selectIndex==index">
+                <input type="text" :placeholder="engine.hint" v-model="searchContent" onfocus="this.select()" onmouseover="this.focus()">
+                <span v-on:click="search()">SO 一下</span>
             </div>
         </div>
     </div>
@@ -140,6 +138,7 @@ export default {
             selectEngines: [
                 { action: "https://www.sogou.com/web?query=", name: "搜狗", hint: "无法翻墙用搜狗" },
                 { action: "https://www.google.com/search?q=", name: "Google", hint: "最强大的搜索引擎" },
+                { action: "https://duckduckgo.com/?q=", name: "DuckDuckGo", hint: "保护隐私的搜索引擎" },
                 { action: "https://www.baidu.com/s?wd=", name: "百度", hint: "百度一下你就知道" },
                 { action: "https://cn.bing.com/search?q=", name: "Bing", hint: "喜欢微软就用Bing" },
                 { action: "https://www.zhihu.com/search?q=", name: "知乎", hint: "有问题上知乎" },
@@ -191,118 +190,113 @@ export default {
             }
         }
         // 头部搜索框
-        .search-container {
+        .search-tab {
             width: auto;
-            margin: 8px;
-            .search-tab {
-                width: auto;
-                list-style: none;
-                padding: 0;
-                .search-tab-first {
-                    display: block;
-                    float: left;
-                    position: relative;
+            list-style: none;
+            padding: 0;
+            .search-tab-first {
+                display: block;
+                float: left;
+                position: relative;
+                width: 64px;
+                padding: 0 8px;
+                text-align: center;
+                color: @text-light;
+                select {
                     width: 64px;
-                    padding: 0 8px;
-                    text-align: center;
+                    height: 36px;
+                    line-height: 36px;
+                    padding-left: 12px;
+                    //隐藏select的下拉图标
+                    appearance: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    font-size: 14px;
                     color: @text-light;
-                    &:hover {
-                        background-color: @bg-translucence-light;
-                    }
-                    &::after {
-                        content: "▼";
-                        position: absolute;
-                        top: 2px;
-                        right: 16px;
-                        width: 8px;
-                        height: 36px;
-                        line-height: 36px;
-                        font-size: 12px;
-                        text-align: center;
-                    }
-                    select {
-                        width: 64px;
-                        height: 36px;
-                        line-height: 36px;
-                        padding-left: 12px;
-                        //隐藏select的下拉图标
-                        appearance: none;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        font-size: 14px;
-                        color: @text-light;
-                        background: @transparent;
-                        cursor: pointer;
-                    }
+                    background: @transparent;
+                    cursor: pointer;
                 }
-                .search-tab-scroll {
-                    overflow-x: auto; /* 1 */
-                    overflow-y: hidden;
-                    white-space: nowrap;
-                    -webkit-overflow-scrolling: touch; /* 2 */
-                    .search-tab-item {
-                        display: inline-block;
-                        height: 36px;
-                        line-height: 36px;
-                        padding: 0 16px;
-                        font-size: 14px;
-                        color: @bg-light;
-                        border-top-left-radius: 4px;
-                        border-top-right-radius: 4px;
-                        cursor: pointer;
-                        &.tab-active {
-                            background: @bg-light;
-                            color: @text-dark;
-                        }
-                        &:hover {
-                            background: @bg-light;
-                            color: @text-dark;
-                        }
+                &:hover {
+                    background-color: @bg-translucence-light;
+                }
+                &::after {
+                    content: "▼";
+                    position: absolute;
+                    top: 2px;
+                    right: 16px;
+                    width: 8px;
+                    height: 36px;
+                    line-height: 36px;
+                    font-size: 12px;
+                    text-align: center;
+                }
+            }
+            .search-tab-scroll {
+                overflow-x: auto; /* 1 */
+                overflow-y: hidden;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch; /* 2 */
+                .search-tab-item {
+                    display: inline-block;
+                    height: 36px;
+                    line-height: 36px;
+                    padding: 0 16px;
+                    font-size: 14px;
+                    color: @bg-light;
+                    border-top-left-radius: 4px;
+                    border-top-right-radius: 4px;
+                    cursor: pointer;
+                    &.tab-active {
+                        background: @bg-light;
+                        color: @text-dark;
+                    }
+                    &:hover {
+                        background: @bg-light;
+                        color: @text-dark;
                     }
                 }
             }
-            .search-input {
-                position: relative;
-                top: -1px;
-                .search-form {
-                    width: 100%;
-                    input {
-                        box-sizing: border-box;
-                        width: 100%;
-                        height: 42px;
-                        line-height: 42px;
-                        padding: 0 16px;
-                        border: none;
-                        font-size: 14px;
-                        border-radius: 4px;
-                        color: @desc-dark;
-                        outline: none;
-                        &:focus {
-                            color: @text-dark;
-                        }
-                    }
-                    span {
-                        display: inline-block;
-                        position: absolute;
-                        right: 0;
-                        top: 0;
-                        width: 100px;
-                        height: 42px;
-                        line-height: 42px;
-                        margin-left: -5px;
-                        border: none;
-                        border-top-right-radius: 4px;
-                        border-bottom-right-radius: 4px;
-                        box-sizing: border-box;
-                        color: @text-light;
-                        font-size: 14px;
-                        text-align: center;
-                        background-color: @btn-green;
-                        cursor: pointer;
-                        &:hover {
-                            background-color: @btn-green-active;
-                        }
-                    }
+        }
+        .search-form {
+            position: relative;
+            top: -1px;
+            width: 100%;
+            input {
+                box-sizing: border-box;
+                width: 100%;
+                height: 42px;
+                line-height: 42px;
+                padding-left: 16px;
+                padding-right: 96px;
+                border: none;
+                font-size: 14px;
+                border-radius: 4px;
+                color: @desc-dark;
+                outline: none;
+                &:focus {
+                    color: @text-dark;
+                }
+            }
+            span {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 80px;
+                height: 42px;
+                line-height: 42px;
+                margin-left: -5px;
+                border: none;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                box-sizing: border-box;
+                color: @text-light;
+                font-size: 14px;
+                text-align: center;
+                background-color: @btn-green;
+                cursor: pointer;
+                &:hover {
+                    background-color: @btn-green-active;
                 }
             }
         }
@@ -324,14 +318,15 @@ export default {
     #search .container {
         width: 92%;
         max-width: 768px;
-        .search-container .search-tab .search-tab-item {
-            padding: 0 12px;
+        .search-tab .search-tab-scroll .search-tab-item {
+            padding: 0 8px;
         }
     }
 }
 @media (max-width: 960px) {
     #search .container {
         width: 95%;
+        padding-top: 24px;
         .search-right-link {
             display: none;
         }
@@ -340,27 +335,37 @@ export default {
 @media (max-width: 768px) {
     #search .container {
         width: 95%;
-        .search-container {
-            .search-tab {
+        .search-tab {
+            .search-tab-first {
+                width: 56px;
+                select {
+                    height: 32px;
+                    line-height: 32px;
+                }
+                &::after {
+                    height: 32px;
+                    line-height: 32px;
+                }
+            }
+            .search-tab-scroll {
                 .search-tab-item {
-                    padding: 0 8px;
+                    padding: 0 6px;
                     font-size: 13px;
                     height: 32px;
                     line-height: 32px;
                 }
             }
-            .search-input .search-form {
-                input {
-                    height: 32px;
-                    line-height: 32px;
-                    font-size: 13px;
-                }
-                span {
-                    width: 80px;
-                    height: 32px;
-                    line-height: 32px;
-                    font-size: 13px;
-                }
+        }
+        .search-form {
+            input {
+                height: 32px;
+                line-height: 32px;
+                font-size: 13px;
+            }
+            span {
+                height: 32px;
+                line-height: 32px;
+                font-size: 13px;
             }
         }
     }

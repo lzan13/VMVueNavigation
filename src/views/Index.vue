@@ -8,7 +8,7 @@
 <!-- 脚本 -->
 <script>
 // 引入组件
-import Site from "./Site.vue";
+import Site from "@/components/Site.vue";
 export default {
     name: "Index",
     components: {

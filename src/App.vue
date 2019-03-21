@@ -29,9 +29,9 @@
 <script>
 import "./assets/iconfont/iconfont.css";
 // 引入组件
-import Footer from "./components/Footer.vue";
-import Search from "./components/Search.vue";
-import Sidebar from "./components/Sidebar.vue";
+import Footer from "@/components/Footer.vue";
+import Search from "@/components/Search.vue";
+import Sidebar from "@/components/Sidebar.vue";
 export default {
     name: "App",
     data() {

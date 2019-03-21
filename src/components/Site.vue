@@ -5,10 +5,9 @@
             <div class="site-category" v-for="category in siteCategorys">
                 <!-- 常用推荐 -->
                 <div class="site-title">
-                    <i class="iconfont icon-tag"></i>
-                    <h2 class="site-title-text">{{ category.title }}</h2>
+                    <i :class="setTitleClass(category.id)"></i><span class="site-title-text">{{ category.title }}</span>
                 </div>
-                <div class="site-list">
+                <div class=" site-list">
                     <div class="site-wrapper" v-for="site in category.sitelist">
                         <a :href="site.url" rel="nofollow" target="_blank">
                             <img class="site-icon" />
@@ -49,37 +48,43 @@ export default {
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "shop",
+                    title: "商铺购物",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "game",
+                    title: "游戏娱乐",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "gps",
+                    title: "定位出行",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "read",
+                    title: "资讯阅读",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "picture",
+                    title: "图片资源",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
                 {
-                    id: "design",
-                    title: "设计相关",
+                    id: "inspiration",
+                    title: "灵感闪现",
                     sitelist: [{ name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库" }],
                 },
             ],
         };
+    },
+
+    methods: {
+        setTitleClass: function(c) {
+            return "iconfont icon-" + c;
+        },
     },
 };
 </script>
@@ -95,6 +100,11 @@ export default {
         .site-category {
             margin-top: 16px;
             .site-title {
+                .iconfont {
+                    font-size: 24px;
+                    color: @desc-dark;
+                    margin-right: 8px;
+                }
                 .site-title-text {
                     color: @desc-dark;
                     font-size: 24px;

@@ -3,7 +3,7 @@
     <div id="sidebar">
         <div class="container">
             <div class="header">
-                <img alt="Vue logo" src="/assets/logo.png">
+                <img class="logo" src="../assets/image/logo.png">
             </div>
             <div class="content">
                 <ul>
@@ -11,9 +11,14 @@
                         <router-link to="/">导航</router-link>
                     </li>
                     <li>
-                        <router-link to="/About">关于</router-link>
+
                     </li>
                 </ul>
+            </div>
+
+            <div class="bottom">
+                <router-link to="/About"><i class="iconfont icon-about"></i>关于</router-link>
+                <router-link to="/About"><i class="iconfont icon-heart-fill"></i>爱心</router-link>
             </div>
         </div>
     </div>
@@ -33,7 +38,37 @@
     .container {
         width: 160px;
         margin: auto;
-        padding-top: 56px;
+        padding-top: 36px;
+        .header {
+            width: 72px;
+            margin: auto;
+            .logo {
+                width: 72px;
+                height: 72px;
+            }
+        }
+        .bottom {
+            position: absolute;
+            bottom: 16px;
+            .iconfont {
+                font-size: 14px;
+                color: @desc-grey;
+                padding-left: 8px;
+                padding-right: 4px;
+            }
+            a {
+                font-size: 14px;
+                font-weight: 350;
+                color: @desc-grey;
+                text-decoration: none;
+                &:hover {
+                    color: @active-link;
+                    .iconfont {
+                        color: @active-link;
+                    }
+                }
+            }
+        }
     }
 }
 </style>

@@ -191,7 +191,7 @@ export default {
 }
 @media (max-width: 768px) {
     #site .container {
-        width: 95%;
+        width: 92%;
         .site-list {
             grid-template-columns: repeat(1, 1fr);
         }

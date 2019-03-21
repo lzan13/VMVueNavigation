@@ -1,6 +1,6 @@
 <!-- 组件模板 -->
 <template>
-    <div class="about">
+    <div id="about">
         <p>{{ msg }}</p>
     </div>
 </template>
@@ -19,4 +19,8 @@ export default {
 
 <!-- 样式 -->
 <style lang="less">
+#about {
+    width: 100%;
+    height: 100vh;
+}
 </style>

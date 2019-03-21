@@ -70,16 +70,19 @@ export default {
         .nav-shadow();
         z-index: 10;
         .app-menu {
+            position: absolute;
             display: block;
             width: 48px;
             height: 48px;
-            float: left;
             text-align: center;
+            z-index: 5;
             .iconfont {
                 font-size: 20px;
             }
         }
         .app-title {
+            position: absolute;
+            display: block;
             width: 100%;
             height: 48px;
             line-height: 48px;

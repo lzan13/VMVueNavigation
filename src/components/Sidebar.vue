@@ -3,7 +3,7 @@
     <div id="sidebar">
         <div class="container">
             <div class="header">
-
+                <img alt="Vue logo" src="/assets/logo.png">
             </div>
             <div class="content">
                 <ul>

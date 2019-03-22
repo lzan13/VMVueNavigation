@@ -94,7 +94,7 @@ export default {
     }
     #app-left {
         flex: none;
-        width: 220px;
+        width: 200px;
         position: fixed;
         top: 0;
         left: 0;
@@ -102,7 +102,7 @@ export default {
     }
     #app-right {
         flex: 1;
-        margin-left: 220px;
+        margin-left: 200px;
     }
 }
 

@@ -1,5 +1,6 @@
 const path = require("path");
 module.exports = {
+  baseUrl: "/hao/",
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',

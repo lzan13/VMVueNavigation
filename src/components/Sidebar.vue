@@ -6,17 +6,25 @@
                 <img class="logo" src="../assets/image/logo.png">
             </div>
             <div class="content">
-                <router-link to="/"><i class="iconfont icon-explore"></i>导航</router-link>
-                <div class="nav-subs">
-                    <div v-for="category in categorys">
-                        <a :href="'#'+category.id"><i :class="'iconfont icon-'+category.id"></i>{{category.title}}</a>
+                <router-link to="/" v-on:click.native="spreadMenu(true)">
+                    <i class="iconfont icon-explore"></i>
+                    <span>导航类别</span>
+                    <i v-if="isSpread" class="iconfont icon-arrow-down"></i>
+                    <i v-else class="iconfont icon-next"></i>
+                </router-link>
+                <div class="nav-subs" v-if="isSpread">
+                    <div class="item" v-for="category in categorys">
+                        <a :href="'#'+category.id">
+                            <i :class="'iconfont icon-'+category.id"></i>
+                            <span>{{category.title}}</span>
+                        </a>
                     </div>
                 </div>
             </div>
             <!-- 底部链接 -->
             <div class="bottom">
-                <router-link to="/About"><i class="iconfont icon-about"></i>关于</router-link>
-                <router-link to="/About"><i class="iconfont icon-heart-fill"></i>爱心</router-link>
+                <router-link to="/About" v-on:click.native="spreadMenu(false)"><i class="iconfont icon-about"></i>关于</router-link>
+                <router-link to="/About" v-on:click.native="spreadMenu(false)"><i class="iconfont icon-heart-fill"></i>爱心</router-link>
             </div>
         </div>
     </div>
@@ -28,10 +36,15 @@ export default {
     name: "Site",
     data() {
         return {
+            isSpread: true,
             categorys: [
                 {
                     id: "recommend",
                     title: "常用推荐",
+                },
+                {
+                    id: "develop",
+                    title: "开发相关",
                 },
                 {
                     id: "design",
@@ -51,11 +64,7 @@ export default {
                 },
                 {
                     id: "social",
-                    title: "社交",
-                },
-                {
-                    id: "develop",
-                    title: "开发",
+                    title: "网络社交",
                 },
                 {
                     id: "shop",
@@ -78,8 +87,8 @@ export default {
     },
 
     methods: {
-        scrollTo(id) {
-            document.querySelector("#" + id).scrollIntoView(true);
+        spreadMenu: function(spread) {
+            this.isSpread = spread;
         },
     },
 };
@@ -95,7 +104,7 @@ export default {
     .container {
         width: 140px;
         margin: auto;
-        padding-top: 36px;
+        padding-top: 56px;
         // 顶部 logo
         .header {
             width: 72px;
@@ -110,7 +119,7 @@ export default {
             .iconfont {
                 font-size: 14px;
                 color: @desc-grey;
-                padding-left: 8px;
+                padding-left: 4px;
                 padding-right: 4px;
             }
             a {
@@ -127,6 +136,13 @@ export default {
             }
             .nav-subs {
                 margin-left: 8px;
+                .item {
+                    height: 36px;
+                    line-height: 36px;
+                    .iconfont {
+                        font-size: 12px;
+                    }
+                }
             }
         }
         // 底部
@@ -136,7 +152,7 @@ export default {
             .iconfont {
                 font-size: 14px;
                 color: @desc-grey;
-                padding-left: 8px;
+                padding-left: 4px;
                 padding-right: 4px;
             }
             a {

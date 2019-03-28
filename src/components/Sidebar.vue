@@ -48,19 +48,23 @@ export default {
                 },
                 {
                     id: "design",
-                    title: "设计相关",
-                },
-                {
-                    id: "inspiration",
-                    title: "灵感闪现",
+                    title: "设计资源",
                 },
                 {
                     id: "picture",
                     title: "图片资源",
                 },
                 {
+                    id: "picture",
+                    title: "绘画制作",
+                },
+                {
                     id: "read",
                     title: "资讯阅读",
+                },
+                {
+                    id: "game",
+                    title: "游戏娱乐",
                 },
                 {
                     id: "social",
@@ -68,11 +72,7 @@ export default {
                 },
                 {
                     id: "shop",
-                    title: "商铺购物",
-                },
-                {
-                    id: "game",
-                    title: "游戏娱乐",
+                    title: "生活购物",
                 },
                 {
                     id: "gps",

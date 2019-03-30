@@ -275,6 +275,7 @@ export default {
                 border-radius: 4px;
                 background: @bg-light;
                 .card-shadow();
+                transition: all 0.3s ease;
                 &:hover {
                     .card-shadow-hover();
                 }

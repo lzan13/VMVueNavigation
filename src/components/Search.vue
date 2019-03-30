@@ -23,7 +23,7 @@
             </div>
             <!-- 搜索框部分 -->
             <div v-for="(engine, index) in selectEngines" class="search-form" v-if="selectIndex==index">
-                <input type="text" :placeholder="engine.hint" v-model="searchContent" onfocus="this.select()" onmouseover="this.focus()">
+                <input type="text" :placeholder="engine.hint" v-model="searchContent" onfocus="this.select()" onmouseover="this.focus()" @keyup.enter="search()">
                 <span v-on:click="search()">SO 一下</span>
             </div>
         </div>
@@ -167,7 +167,7 @@ export default {
 <style lang="less">
 #search {
     width: 100%;
-    padding-top: 36px;
+    padding-top: 16px;
     padding-bottom: 12px;
     background: @bg-dark;
     // 头部容器
@@ -326,7 +326,6 @@ export default {
 @media (max-width: 960px) {
     #search .container {
         width: 95%;
-        padding-top: 24px;
         .search-right-link {
             display: none;
         }

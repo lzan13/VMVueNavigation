@@ -6,16 +6,16 @@
                 <img class="logo" src="../assets/image/logo.png">
             </div>
             <div class="content">
-                <router-link to="/" v-on:click.native="spreadMenu(true)">
+                <router-link :class="{'item-select':isSpread}" to="/" v-on:click.native="spreadMenu(true)">
                     <i class="iconfont icon-explore"></i>
                     <span>导航类别</span>
                     <i v-if="isSpread" class="iconfont icon-arrow-down"></i>
-                    <i v-else class="iconfont icon-next"></i>
+                    <i v-else class="iconfont icon-arrow-right"></i>
                 </router-link>
-                <div class="nav-subs" v-if="isSpread">
+                <div class="items" v-if="isSpread">
                     <div class="item" v-for="category in categorys">
                         <a :href="'#'+category.id">
-                            <i :class="'iconfont icon-'+category.id"></i>
+                            <!-- <i :class="'iconfont icon-'+category.id"></i> -->
                             <span>{{category.title}}</span>
                         </a>
                     </div>
@@ -104,7 +104,7 @@ export default {
     .container {
         width: 140px;
         margin: auto;
-        padding-top: 56px;
+        padding-top: 36px;
         // 顶部 logo
         .header {
             width: 72px;
@@ -127,6 +127,12 @@ export default {
                 font-weight: 350;
                 color: @desc-grey;
                 text-decoration: none;
+                &.item-select {
+                    color: @active-link;
+                    .iconfont {
+                        color: @active-link;
+                    }
+                }
                 &:hover {
                     color: @active-link;
                     .iconfont {
@@ -134,13 +140,13 @@ export default {
                     }
                 }
             }
-            .nav-subs {
-                margin-left: 8px;
+            .items {
+                margin-left: 22px;
                 .item {
                     height: 36px;
                     line-height: 36px;
                     .iconfont {
-                        font-size: 12px;
+                        font-size: 14px;
                     }
                 }
             }

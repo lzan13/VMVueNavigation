@@ -112,6 +112,7 @@ export default {
         #app-left {
             display: none;
             width: 100%;
+            margin-top: 48px;
             background: @bg-translucence-dark;
             &.app-sidebar-show {
                 display: block;
@@ -119,6 +120,7 @@ export default {
         }
         #app-right {
             margin-left: 0;
+            margin-top: 48px;
         }
         #app-header {
             display: block;

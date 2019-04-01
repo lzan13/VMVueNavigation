@@ -3,28 +3,30 @@
     <div id="sidebar">
         <div class="container">
             <div class="header">
-                <img class="logo" src="../assets/image/logo.png">
+                <img class="logo" :src="publicPath + '/image/site-logo.png'">
             </div>
             <div class="content">
-                <router-link :class="{'item-select':isSpread}" to="/" v-on:click.native="spreadMenu(true)">
-                    <i class="iconfont icon-explore"></i>
-                    <span>导航类别</span>
-                    <i v-if="isSpread" class="iconfont icon-arrow-down"></i>
-                    <i v-else class="iconfont icon-arrow-right"></i>
-                </router-link>
-                <div class="items" v-if="isSpread">
-                    <div class="item" v-for="category in categorys">
-                        <a :href="'#'+category.id">
-                            <!-- <i :class="'iconfont icon-'+category.id"></i> -->
-                            <span>{{category.title}}</span>
-                        </a>
+                <div class="nav" v-for="(nav, index) in navList">
+                    <router-link :class="{'item-select':navIndex==index}" :to="nav.url" v-on:click.native="changeNav(index)">
+                        <i :class="'iconfont icon-' + nav.id"></i>
+                        <span>{{nav.title}}</span>
+                        <span v-if="index==0">
+                            <i v-if="navIndex==index" class="iconfont icon-arrow-down"></i>
+                            <i v-else class="iconfont icon-arrow-right"></i>
+                        </span>
+                    </router-link>
+                    <div class="items" v-if="index==0 && navIndex==0">
+                        <div class="item" v-for="category in categorys">
+                            <a :href="'#'+category.id">
+                                <!-- <i :class="'iconfont icon-'+category.id"></i> -->
+                                <span>{{category.title}}</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- 底部链接 -->
             <div class="bottom">
-                <router-link to="/About" v-on:click.native="spreadMenu(false)"><i class="iconfont icon-about"></i>关于</router-link>
-                <router-link to="/About" v-on:click.native="spreadMenu(false)"><i class="iconfont icon-heart-fill"></i>爱心</router-link>
             </div>
         </div>
     </div>
@@ -36,7 +38,25 @@ export default {
     name: "Site",
     data() {
         return {
-            isSpread: true,
+            publicPath: process.env.BASE_URL,
+            navIndex: 0,
+            navList: [
+                {
+                    id: "explore",
+                    title: "导航探索",
+                    url: "/",
+                },
+                {
+                    id: "about",
+                    title: "关于",
+                    url: "/about",
+                },
+                {
+                    id: "heart-fill",
+                    title: "爱心",
+                    url: "/about",
+                },
+            ],
             categorys: [
                 {
                     id: "recommend",
@@ -55,7 +75,7 @@ export default {
                     title: "图片资源",
                 },
                 {
-                    id: "picture",
+                    id: "draw",
                     title: "绘画制作",
                 },
                 {
@@ -87,8 +107,8 @@ export default {
     },
 
     methods: {
-        spreadMenu: function(spread) {
-            this.isSpread = spread;
+        changeNav: function(index) {
+            this.navIndex = index;
         },
     },
 };
@@ -112,6 +132,7 @@ export default {
             .logo {
                 width: 72px;
                 height: 72px;
+                border-radius: 50%;
             }
         }
         // 中间导航

@@ -3,14 +3,18 @@
     <div id="site">
         <div class="container">
             <div class="site-category" v-for="category in siteCategorys">
+                <div :id="category.id" class="site-decoration"></div>
                 <!-- 常用推荐 -->
-                <div :id="category.id" class="site-title">
+                <div class="site-title">
                     <i :class="'iconfont icon-' + category.id"></i><span class="site-title-text">{{ category.title }}</span>
                 </div>
                 <div class=" site-list">
                     <div class="site-wrapper" v-for="site in category.sitelist">
                         <a :href="site.url" rel="nofollow" target="_blank">
-                            <img class="site-icon" />
+                            <div class="site-icon-container">
+                                <img class="site-icon" v-if="site.icon==''" :src="publicPath + 'image/site-icon/default.png'" />
+                                <img class="site-icon" v-else :src="publicPath + 'image/site-icon/' + site.icon" />
+                            </div>
                             <div class="site-content">
                                 <h3 class="site-name">{{ site.name }}</h3>
                                 <p class="site-desc">{{ site.desc }}</p>
@@ -29,18 +33,19 @@ export default {
     name: "Site",
     data() {
         return {
+            publicPath: process.env.BASE_URL,
             siteCategorys: [
                 {
                     id: "recommend",
                     title: "常用推荐",
                     sitelist: [
                         { name: "网易云音乐", url: "https://music.163.com", icon: "", desc: "网易云音乐，最喜欢的音乐平台，喜欢听私人FM" },
-                        { name: "爱范儿", url: "https://www.ifanr.com/", icon: "", desc: "爱范儿，让未来触手可及，我每天都看的互联网资讯平台" },
-                        { name: "IconFont", url: "https://www.iconfont.cn", icon: "", desc: "阿里巴巴矢量图标库，平常做自己的项目可以在这上边找图标" },
-                        { name: "花瓣", url: "http://huaban.com", icon: "", desc: "陪你做生活的设计师（发现，采集，分享你喜欢的灵感美图）" },
-                        { name: "优设网", url: "https://www.uisdc.com", icon: "", desc: "设计师学习交流平台，很多设计干货" },
-                        { name: "Pinterest", url: "https://www.pinterest.com", icon: "", desc: "从优美的图海中洞见全球设计创意" },
-                        { name: "Dribbble", url: "https://dribbble.com", icon: "", desc: "全球优秀设计师最佳交流展示平台" },
+                        { name: "爱范儿", url: "https://www.ifanr.com/", icon: "ifanr.png", desc: "爱范儿，让未来触手可及，我每天都看的互联网资讯平台" },
+                        { name: "IconFont", url: "https://www.iconfont.cn", icon: "iconfont.png", desc: "阿里巴巴矢量图标库，平常做自己的项目可以在这上边找图标" },
+                        { name: "花瓣", url: "http://huaban.com", icon: "huaban.png", desc: "陪你做生活的设计师（发现，采集，分享你喜欢的灵感美图）" },
+                        { name: "优设网", url: "https://www.uisdc.com", icon: "uisdc.png", desc: "设计师学习交流平台，很多设计干货" },
+                        { name: "Pinterest", url: "https://www.pinterest.com", icon: "pinterest.png", desc: "从优美的图海中洞见全球设计创意" },
+                        { name: "Dribbble", url: "https://dribbble.com", icon: "dribbble.png", desc: "全球优秀设计师最佳交流展示平台" },
                         { name: "百度地图", url: "https://map.baidu.cn", icon: "", desc: "百度地图，最常用的导航应用" },
                         { name: "站长工具", url: "http://tool.chinaz.com", icon: "", desc: "各种常用的在线工具，用的最多的就是代码格式化，时间戳转换" },
                         { name: "草料二维码", url: "https://cli.im", icon: "", desc: "专业的二维码管理系统，可以生成、美化各种二维码" },
@@ -58,14 +63,14 @@ export default {
                         { name: "JSRun", url: "https://jsrun.net", icon: "", desc: "在线编辑器，包括 JS/Nodejs/Java/C/C++/Ruby/Lua/Python/PHP/GO等多种代码" },
                         { name: "CodePen", url: "https://codepen.io", icon: "", desc: "面向前端设计人员和开发人员的社交开发环境" },
                         { name: "VueJS", url: "https://cn.vuejs.org/index.html", icon: "", desc: "渐进式 JavaScript 开发框架，前端开发利器" },
-                        { name: "BootCSS", ul: "http://www.bootcss.com/", icon: "", desc: "简洁、直观、强悍的前端开发框架，让web开发更迅速、简单" },
+                        { name: "BootCSS", ul: "http://www.bootcss.com/", icon: "bootcss.png", desc: "简洁、直观、强悍的前端开发框架，让web开发更迅速、简单" },
                         { name: "泡在网上的日子", url: "http://www.jcodecraeer.com", icon: "", desc: "很棒的开发社区，里边有不少不错的文章" },
                         { name: "掘金", url: "https://juejin.im/timeline", icon: "", desc: "掘金是帮助开发者成长的社区，包括Android、iOS、前端、后端等方面的内容" },
                         { name: "凹凸实验室", url: "https://aotu.io", icon: "", desc: "一个年轻基情的技术社区组织，面向多终端技术体系，主要是 Web 的内容" },
                         { name: "SegmentFault思否", url: "http://segmentfault.com", icon: "", desc: "思否，国内最大的开发问答社区，在这里学习技能、解决问题" },
                         { name: "StackoverFlow", url: "https://stackoverflow.com", icon: "", desc: "全球最大的开发问答社区，分享交流编程知识" },
                         { name: "V2EX", url: "https://www.v2ex.com", icon: "", desc: "V2EX 是一个关于分享和探索的地方，一个 IT 人交流社区" },
-                        { name: "W3School", url: "http://www.w3school.com.cn", icon: "", desc: "在 w3school，你可以找到你所需要的所有的网站建设教程，HTML/CSS/JS/PHP/SQL等" },
+                        { name: "W3School", url: "http://www.w3school.com.cn", icon: "w3school.png", desc: "在 w3school，你可以找到你所需要的所有的网站建设教程，HTML/CSS/JS/PHP/SQL等" },
                         { name: "菜鸟教程", url: "http://www.runoob.com", icon: "", desc: "提供HTML/CSS/JS/PHP/SQL/Java/C/Ruby/Python等教程，也提供大量实例" },
                         { name: "BootCDN", url: "https://www.bootcdn.cn", icon: "", desc: "稳定、快速、免费的前端开源项目 CDN 加速服务" },
                         { name: "75CDN", url: "https://cdn.baomitu.com", icon: "", desc: "前端静态资源库，首个支持 HTTP/2 的 CDN 服务" },
@@ -79,28 +84,28 @@ export default {
                     id: "design",
                     title: "设计资源",
                     sitelist: [
-                        { name: "UI中国", url: "http://www.ui.cn", icon: "", desc: "专业用户设计平台，里边的作品都是高质量的" },
-                        { name: "站酷", url: "http://www.zcool.com.cn", icon: "", desc: "设计师互动平台 - 打开站酷，发现更好的设计！" },
+                        { name: "UI中国", url: "http://www.ui.cn", icon: "ui.png", desc: "专业用户设计平台，里边的作品都是高质量的" },
+                        { name: "站酷", url: "http://www.zcool.com.cn", icon: "zcool.png", desc: "设计师互动平台 - 打开站酷，发现更好的设计！" },
                         { name: "盒子UI", url: "http://www.boxui.com", icon: "", desc: "专注UI设计，分享精彩的UI设计、交互设计、用户研究作品及相关UI理论知识" },
                         { name: "视觉中国", url: "http://shijue.me", icon: "", desc: "设计师&插画师交流平台" },
-                        { name: "优设网", url: "http://www.uisdc.com", icon: "", desc: "设计师交流学习平台 - 看设计文章，学软件教程，找灵感素材，尽在优设网！" },
-                        { name: "优优教程网", url: "http://www.uiiiuiii.com", icon: "", desc: "学教程找灵感就上优优 - PS教程、AI教程、原创免费教程" },
+                        { name: "优设网", url: "http://www.uisdc.com", icon: "uisdc.png", desc: "设计师交流学习平台 - 看设计文章，学软件教程，找灵感素材，尽在优设网！" },
+                        { name: "优优教程网", url: "http://www.uiiiuiii.com", icon: "uiii.png", desc: "学教程找灵感就上优优 - PS教程、AI教程、原创免费教程" },
                         { name: "学UI网", url: "http://www.xueui.cn", icon: "", desc: "UI 设计师学习教程平台" },
-                        { name: "Doyoudo", url: "http://www.doyoudo.com", icon: "", desc: "从入门到精通～优质中文设计教程" },
-                        { name: "68Design", url: "http://www.68design.net", icon: "", desc: "设计师求职接单一站式服务平台" },
-                        { name: "秀设计", url: "https://www.xiusheji.com", icon: "", desc: "大学生设计联盟，集聚了最具潮流时尚、年轻活力的青年及学生人群" },
-                        { name: "优阁网", url: "http://uigreat.com", icon: "", desc: "设计师学习交流分享平台，免费UI设计公开课，分享最新UI设计教程，UI设计资源" },
+                        { name: "Doyoudo", url: "http://www.doyoudo.com", icon: "doyoudo.jpg", desc: "从入门到精通～优质中文设计教程" },
+                        { name: "68Design", url: "http://www.68design.net", icon: "68design.png", desc: "设计师求职接单一站式服务平台" },
+                        { name: "秀设计", url: "https://www.xiusheji.com", icon: "xiusheji.jpg", desc: "大学生设计联盟，集聚了最具潮流时尚、年轻活力的青年及学生人群" },
+                        { name: "优阁网", url: "http://uigreat.com", icon: "uigreat.jpg", desc: "设计师学习交流分享平台，免费UI设计公开课，分享最新UI设计教程，UI设计资源" },
                         { name: "微元素", url: "https://www.element3ds.com", icon: "", desc: "游戏资源下载，游戏原画，手机游戏资源，游戏开发资源" },
-                        { name: "游戏UI", url: "http://www.gameui.cn", icon: "", desc: "专注于游戏视觉相关的设计分享，更有ICON、WEB、图标、插画、字形设计、交互灯欣赏" },
-                        { name: "字体传奇", url: "http://www.ziticq.com", icon: "", desc: "中国首个字体设计师交流网，不只有字体，挺不错" },
-                        { name: "普象网", url: "https://www.pushthink.com", icon: "", desc: "国内工业设计交流社区" },
-                        { name: "UpLabs", url: "http://www.uplabs.com", icon: "", desc: "国外设计牛站，提升最佳设计和优势; 每天发现新灵感，资源和免费作品" },
-                        { name: "Dribbble", url: "http://dribbble.com", icon: "", desc: "设计师获得灵感、反馈社区，也是您发现和联系全球设计师的最佳资源" },
-                        { name: "CollectUI", url: "http://collectui.com", icon: "", desc: "每日收集各种 UI，各种分类，很齐全" },
-                        { name: "UI8", url: "https://ui8.net", icon: "", desc: "设计作品商店，挺好的，不买来看看也好" },
+                        { name: "游戏UI", url: "http://www.gameui.cn", icon: "gameui.png", desc: "专注于游戏视觉相关的设计分享，更有ICON、WEB、图标、插画、字形设计、交互灯欣赏" },
+                        { name: "字体传奇", url: "http://www.ziticq.com", icon: "ziticq.jpg", desc: "中国首个字体设计师交流网，不只有字体，挺不错" },
+                        { name: "普象网", url: "https://www.pushthink.com", icon: "pushthink.jpg", desc: "国内工业设计交流社区" },
+                        { name: "UpLabs", url: "http://www.uplabs.com", icon: "uplabs.png", desc: "国外设计牛站，提升最佳设计和优势; 每天发现新灵感，资源和免费作品" },
+                        { name: "Dribbble", url: "http://dribbble.com", icon: "dribbble.png", desc: "设计师获得灵感、反馈社区，也是您发现和联系全球设计师的最佳资源" },
+                        { name: "CollectUI", url: "http://collectui.com", icon: "collectui.png", desc: "每日收集各种 UI，各种分类，很齐全" },
+                        { name: "UI8", url: "https://ui8.net", icon: "ui8.png", desc: "设计作品商店，挺好的，不买来看看也好" },
                         { name: "Prototypr", url: "https://www.prototypr.io/home", icon: "", desc: "国外一个设计相关大集合站点，包括设计工具，作品分享" },
                         { name: "Seeseed", url: "https://www.seeseed.com", icon: "", desc: "无穷尽设计可能" },
-                        { name: "优设导航", url: "http://hao.uisdc.com", icon: "", desc: "SDC设计师网址导航 - 学设计从这里开始！" },
+                        { name: "优设导航", url: "http://hao.uisdc.com", icon: "uisdc.png", desc: "SDC设计师网址导航 - 学设计从这里开始！" },
                         { name: "设计导航", url: "http://hao.shejidaren.com", icon: "", desc: "设计导航 - 精选最好的设计网站大全" },
                         { name: "牛大拿", url: "http://niudana.com", icon: "", desc: "牛大拿_最贴心的设计师导航" },
                         { name: "钢笔练习", url: "https://bezier.method.ac", icon: "", desc: "一款游戏，可以帮助您掌握钢笔工具" },
@@ -128,13 +133,13 @@ export default {
                     ],
                 },
                 {
-                    id: "picture",
+                    id: "draw",
                     title: "绘画制作",
                     sitelist: [
-                        { name: "ArtStation", url: "https://www.artstation.com", icon: "", desc: "ArtStation是游戏，电影，媒体和娱乐领域的领先展示平台" },
-                        { name: "Pixiv", url: "http://www.pixiv.net", icon: "", desc: "这里有各种各样不同风格的投稿作品，我们还会举办官方、用户企画的各种比赛" },
-                        { name: "CG部落", url: "http://www.cgbolo.com", icon: "", desc: "专业的CG、插画、原画交流平台" },
-                        { name: "涂鸦王国", url: "https://www.gracg.com", icon: "", desc: "绘画插画作品，中国优秀的插画师，漫画家，画家的聚集地" },
+                        { name: "ArtStation", url: "https://www.artstation.com", icon: "artstation.png", desc: "ArtStation是游戏，电影，媒体和娱乐领域的领先展示平台" },
+                        { name: "Pixiv", url: "http://www.pixiv.net", icon: "pixiv.png", desc: "这里有各种各样不同风格的投稿作品，我们还会举办官方、用户企画的各种比赛" },
+                        { name: "CG部落", url: "http://www.cgbolo.com", icon: "cgbolo.png", desc: "专业的CG、插画、原画交流平台" },
+                        { name: "涂鸦王国", url: "https://www.gracg.com", icon: "gracg.png", desc: "绘画插画作品，中国优秀的插画师，漫画家，画家的聚集地" },
                         { name: "Grafolio", url: "https://www.grafolio.com/works/list.grfl", icon: "", desc: "韩国插画设计师交流和展示插画作品集的平台" },
                         { name: "蓝铅笔", url: "https://www.lanqb.com", icon: "", desc: "绘画学习平台，提供手绘、板绘、动漫画、插画、原画、绘画培训，零基础轻松学画画" },
                         { name: "LovePixel", url: "http://www.lovepixel.idv.tw", icon: "", desc: "台湾一个绘制像素画的大神，很厉害，很喜欢" },
@@ -145,11 +150,11 @@ export default {
                     title: "资讯阅读",
                     sitelist: [
                         { name: "简书", url: "https://www.jianshu.com", icon: "", desc: "简书，没事写写自己的博客，看看别人的博客，挺好" },
-                        { name: "爱范儿", url: "https://www.ifanr.com/", icon: "", desc: "爱范儿，让未来触手可及，我每天都看的互联网资讯平台" },
-                        { name: "36氪", url: "https://36kr.com", icon: "", desc: "36Kr，和爱范儿一样，我每天都看的互联网资讯平台" },
+                        { name: "爱范儿", url: "https://www.ifanr.com", icon: "ifanr.png", desc: "爱范儿，让未来触手可及，我每天都看的互联网资讯平台" },
+                        { name: "36氪", url: "https://36kr.com", icon: "36kr.png", desc: "36Kr，和爱范儿一样，我每天都看的互联网资讯平台" },
                         { name: "少数派", url: "https://sspai.com", icon: "", desc: "高效工作，品质生活 - 少数派" },
-                        { name: "极客公园", url: "http://www.geekpark.net", icon: "", desc: "聚焦互联网领域，跟踪最新的科技新闻动态，关注极具创新精神的科技产品" },
-                        { name: "虎嗅网", url: "https://www.huxiu.com", icon: "", desc: "聚合优质的创新信息与人群，捕获精选|深度|犀利的商业科技资讯" },
+                        { name: "极客公园", url: "http://www.geekpark.net", icon: "geekpark.png", desc: "聚焦互联网领域，跟踪最新的科技新闻动态，关注极具创新精神的科技产品" },
+                        { name: "虎嗅网", url: "https://www.huxiu.com", icon: "huxiu.png", desc: "聚合优质的创新信息与人群，捕获精选|深度|犀利的商业科技资讯" },
                         { name: "码农周刊", url: "https://weekly.manong.io", icon: "", desc: "一份专为程序员打造的IT技术周刊，可以订阅，每周一发送，完全免费" },
                         { name: "开发者头条", url: "https://toutiao.io", icon: "", desc: "可以阅读头条新闻、分享技术文章、发布开源项目、订阅技术极客" },
                         { name: "伯乐在线", url: "http://blog.jobbole.com", icon: "", desc: "专注分享IT互联网程序员、设计、营销、互联网、IT技术、自由职业、创业、运营、管理、翻译和人力等文章" },
@@ -252,6 +257,12 @@ export default {
         margin: auto;
         .site-category {
             margin-top: 16px;
+            .site-decoration {
+                width: 100%;
+                height: 1px;
+                margin: 36px 0 24px;
+                background: @decoration-dark;
+            }
             .site-title {
                 .iconfont {
                     font-size: 24px;
@@ -271,7 +282,7 @@ export default {
             grid-column-gap: 24px;
             margin-top: 8px;
             .site-wrapper {
-                padding: 8px;
+                padding: 4px;
                 border-radius: 4px;
                 background: @bg-light;
                 .card-shadow();
@@ -282,15 +293,20 @@ export default {
                 a {
                     display: flex;
                     text-decoration: none;
-                    .site-icon {
-                        flex: none;
+                    .site-icon-container {
+                        margin: 8px;
                         width: 36px;
                         height: 36px;
-                        margin: 8px;
-                        border-radius: 50%;
+                        .site-icon {
+                            flex: none;
+                            width: 36px;
+                            height: 36px;
+                            border-radius: 50%;
+                        }
                     }
                     .site-content {
                         flex: 1;
+                        margin: 4px;
                         .site-name {
                             color: @title-dark;
                             font-size: 14px;
@@ -323,7 +339,7 @@ export default {
         width: 100%;
         max-width: 1600px;
         .site-list {
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
         }
     }
 }

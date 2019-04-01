@@ -2,10 +2,10 @@
 <template>
     <div id="search">
         <div class="container">
-            <div class="search-right-link">
+            <!-- <div class="search-right-link">
                 <a href="https://hao.melove.net" target="_blank">Ctrl+D 收藏</a>
                 <a href="https://www.melove.net" target="_blank">关于我</a>
-            </div>
+            </div> -->
             <!-- 搜索 tab -->
             <div class="search-tab">
                 <div class="search-tab-first">

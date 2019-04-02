@@ -7,14 +7,16 @@
             </div>
             <div class="content">
                 <div class="nav" v-for="(nav, index) in navList">
-                    <router-link :class="{'item-select':navIndex==index}" :to="nav.url" v-on:click.native="changeNav(index)">
-                        <i :class="'iconfont icon-' + nav.id"></i>
-                        <span>{{nav.title}}</span>
-                        <span v-if="index==0">
-                            <i v-if="navIndex==index" class="iconfont icon-arrow-down"></i>
-                            <i v-else class="iconfont icon-arrow-right"></i>
-                        </span>
-                    </router-link>
+                    <div :class="{'nav-select':navIndex==index}">
+                        <router-link :to="nav.url" v-on:click.native="changeNav(index)">
+                            <i :class="'iconfont icon-' + nav.id"></i>
+                            <span>{{nav.title}}</span>
+                            <span v-if="index==0">
+                                <i v-if="navIndex==index" class="iconfont icon-arrow-down"></i>
+                                <i v-else class="iconfont icon-arrow-right"></i>
+                            </span>
+                        </router-link>
+                    </div>
                     <div class="items" v-if="index==0 && navIndex==0">
                         <div class="item" v-for="category in categorys">
                             <a :href="'#'+category.id">
@@ -117,12 +119,11 @@ export default {
 <!-- 样式 -->
 <style lang="less">
 #sidebar {
-    width: 200px;
+    width: 220px;
     height: 100vh;
-    background: @bg-light;
+    background: @c-bg-sidebar;
     .nav-shadow();
     .container {
-        width: 140px;
         margin: auto;
         padding-top: 36px;
         // 顶部 logo
@@ -133,36 +134,54 @@ export default {
                 width: 72px;
                 height: 72px;
                 border-radius: 50%;
+                border: 6px solid @c-border-logo;
             }
         }
         // 中间导航
         .content {
-            .iconfont {
-                font-size: 14px;
-                color: @desc-grey;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            a {
-                font-size: 14px;
-                font-weight: 350;
-                color: @desc-grey;
-                text-decoration: none;
-                &.item-select {
-                    color: @active-link;
+            .nav {
+                width: 100%;
+                margin: auto;
+                a {
+                    display: block;
+                    width: 100px;
+                    height: 42px;
+                    line-height: 42px;
+                    margin: auto;
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: @c-sidebar-item-text;
                     .iconfont {
-                        color: @active-link;
+                        font-size: 14px;
+                        color: @c-sidebar-item-text;
+                        padding-left: 4px;
+                        padding-right: 4px;
+                    }
+                    &:hover {
+                        color: @c-link-active;
+                        text-decoration: none;
+                        .iconfont {
+                            color: @c-link-active;
+                        }
                     }
                 }
-                &:hover {
-                    color: @active-link;
-                    .iconfont {
-                        color: @active-link;
+                .nav-select {
+                    width: 100%;
+                    height: 42px;
+                    line-height: 42px;
+                    background: @c-bg-sidebar-item-select;
+                    a {
+                        font-weight: 450;
+                        color: @c-link-active;
+                        .iconfont {
+                            color: @c-link-active;
+                        }
                     }
                 }
             }
             .items {
-                margin-left: 22px;
+                margin-left: 40px;
+                margin-bottom: 8px;
                 .item {
                     height: 36px;
                     line-height: 36px;
@@ -175,25 +194,7 @@ export default {
         // 底部
         .bottom {
             position: absolute;
-            bottom: 16px;
-            .iconfont {
-                font-size: 14px;
-                color: @desc-grey;
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-            a {
-                font-size: 14px;
-                font-weight: 350;
-                color: @desc-grey;
-                text-decoration: none;
-                &:hover {
-                    color: @active-link;
-                    .iconfont {
-                        color: @active-link;
-                    }
-                }
-            }
+            bottom: 36px;
         }
     }
 }

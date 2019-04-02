@@ -7,103 +7,91 @@
 
 
 
+/**
+ * ---------------------------------------------------
+ * 定义颜色变量
+ */
 // 通用文本颜色
-// ---------------------------------------------------
-@transparent: rgba(0, 0, 0, 0);
-// 亮色
-@text-light: #fefefe;
-@title-light: #fefefe;
-@subtitle-light:#e8e8e8;
-@desc-light: #d8d8d8;
-// 暗色
-@text-grey: #808080;
-@title-grey: #808080;
-@subtitle-grey: #898989;
-@desc-grey: #a8a8a8;
-// 暗色
-@text-dark: #363636;
-@title-dark: #363636;
-@subtitle-dark: #525252;
-@desc-dark: #636363;
+@c-transparent: rgba(0, 0, 0, 0);
+@c-white: #ffffff;
+@c-black: #000000;
+@c-scroll-bar: #d8d8d8;
 
-// 活动相关颜色
-@inactive-light: #e8e8e8;
-@inactive-dark: rgba(54, 54, 54, .6);
+// 链接颜色
+@c-link-normal:#00a0ff;
+@c-link-active:#00ad35;
 
-@active-light: #fefefe;
-@active-dark: rgba(54, 54, 54, .8);
+// 背景色
+@c-bg-body: #f5f8f5;
+@c-bg-translucence-mask: rgba(61, 61, 61, 0.5);
+ 
+ 
+ /**
+  * 装饰间隔颜色
+  */
+ @c-decoration: rgba(61, 61, 61, 0.08);
 
-// 超链接激活颜色
-@active-link: #f59353;
-@normal-link: #63c4fc;
 
-// Copyright 颜色配置
-@copyright-bg: rgba(54, 54, 54, .6);
-@copyright-text: #d8d8d8;
+/**
+ * 顶部使用颜色
+ */
+@c-bg-header: #3d3d3d;
+@c-bg-header-light: #fefefe;
+@c-bg-header-tab: #ffffff;
+@c-header-text-light: #fefefe;
+@c-header-text-dark: #3d3d3d;
+@c-header-input-hint: #d8d8d8;
+@c-header-btn-green: #00c200;
+@c-header-btn-green-active: #00a200;
 
-// 半透明导航背景
-@top-nav-bg: rgba(54, 54, 54, 0.6);
-@side-nav-bg: rgba(222, 222, 222, 0.6);
 
-// 标签颜色
-@tag-bg-light: #f8f8f8;
-@tag-bg-dark: #9a9a9a;
-@tag-light: #fefefe;
-@tag-dark: #898989;
+/**
+ * 底部颜色
+ */
+@c-bg-footer:rgba(rgba(212, 228, 212, 0.24));
+@c-footer-decoration: #d9e3ea;
+@c-footer-text: #909090;
 
-@btn-light: #f8f8f8;
-@btn-dark: #363636;
-@btn-green: #00c200;
-@btn-light-active: #fefefe;
-@btn-dark-active: #232323;
-@btn-green-active: #00a200;
 
-//背景色
-@bg-grey-white:#f8f8f8;
-@bg-light: #fefefe;
-@bg-dark: #363636;
-@bg-grey: #a8a8a8;
-@bg-footer: #efefef;
-@bg-header: #363636;
-@bg-translucence-light: rgba(255, 255, 255, 0.4);
-@bg-translucence-dark: rgba(54, 54, 54, 0.4);
-@bg-translucence-grey: rgba(127, 127, 127, 0.4);
+/**
+ * 侧边栏颜色
+ */
+@c-bg-sidebar: #fefefe;
+@c-bg-sidebar-item-select: #f5f8f5;
+@c-border-logo: #ffffff;
+@c-sidebar-item-text: #909090;
 
-// 装饰间隔颜色
-@decoration-light: rgba(255, 255, 255, 0.2);
-@decoration-dark: rgba(54, 54, 54, 0.1);
 
-// 阴影颜色
-@shadow-light: rgba(255, 255, 255, 0.6);
-@shadow-light-hover: rgba(255, 255, 255, 0.8);
+/**
+ * 导航内容颜色
+ */
+@c-bg-site-card: #fefefe;
+@c-site-decoration: rgba(61, 61, 61, 0.08);
+@c-site-category-title: #898989;
+@c-site-card-title: #3d3d3d;
+@c-site-card-desc: #909090;
 
-@shadow-dark: rgba(54, 54, 54, 0.6);;
-@shadow-dark-hover: rgba(54, 54, 54, 0.8);
 
-// 封装阴影效果
-// ---------------------------------------------------
+/**
+ * ---------------------------------------------------
+ * 封装阴影效果
+ */
 .box-shadow(@x:0px, @y: 5px, @blur: 24px, @size:2px, @alpha: 0.08){
   box-shadow: @x @y @blur @size rgba(30, 30, 30, @alpha);
   -webkit-box-shadow: @x @y @blur @size rgba(30, 30, 30, @alpha);
 }
+
+// 导航阴影
 .nav-shadow(){
   .box-shadow(0px, 1px, 16px, 1px, 0.2);
 }
+
+// 卡片阴影
 .card-shadow(){
   .box-shadow(0px, 0px, 24px, -2px, 0.08)
 }
 .card-shadow-hover(){
   .box-shadow(0px, 5px, 36px, -5px, 0.25)
-}
-  
-// 图片遮罩样式
-.cover-shape() {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
   
 

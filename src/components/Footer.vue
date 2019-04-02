@@ -1,7 +1,7 @@
 <!-- 组件模板 -->
 <template>
     <div id="footer">
-        <p><span class="all-right-reserved">&copy; 2019</span><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备14080761号-1</a></p>
+        <p class="copyright"><span class="all-right-reserved">&copy; 2019</span><a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备14080761号-1</a></p>
     </div>
 </template>
 
@@ -18,24 +18,18 @@ export default {
 <!-- 样式 -->
 <style lang="less">
 #footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    height: 32px;
-    line-height: 32px;
-    padding-left: 16px;
+    height: 56px;
+    line-height: 56px;
     text-align: left;
-    background-color: @bg-footer;
-    .nav-shadow();
-    p {
-        color: @desc-grey;
+    color: @c-footer-text;
+    background-color: @c-bg-footer;
+    .copyright {
+        border-top: 1px solid @c-footer-decoration;
         font-size: 12px;
+        padding-left: 16px;
         a {
             margin-left: 8px;
-            color: @desc-grey;
-            &:hover {
-                color: @active-link;
-            }
         }
     }
 }

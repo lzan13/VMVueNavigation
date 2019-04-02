@@ -2,10 +2,6 @@
 <template>
     <div id="search">
         <div class="container">
-            <!-- <div class="search-right-link">
-                <a href="https://hao.melove.net" target="_blank">Ctrl+D 收藏</a>
-                <a href="https://www.melove.net" target="_blank">关于我</a>
-            </div> -->
             <!-- 搜索 tab -->
             <div class="search-tab">
                 <div class="search-tab-first">
@@ -169,31 +165,16 @@ export default {
     width: 100%;
     padding-top: 16px;
     padding-bottom: 12px;
-    background: @bg-dark;
+    background: @c-bg-header;
     // 头部容器
     .container {
         margin: auto;
-        // 头部右侧链接
-        .search-right-link {
-            position: absolute;
-            right: 16px;
-            top: 8px;
-            a {
-                display: inline-block;
-                padding-right: 8px;
-                color: @text-light;
-                text-decoration: none;
-                font-size: 13px;
-                &:hover {
-                    color: @text-light;
-                }
-            }
-        }
         // 头部搜索框
         .search-tab {
             width: auto;
             list-style: none;
             padding: 0;
+            font-weight: 400;
             .search-tab-first {
                 display: block;
                 float: left;
@@ -201,7 +182,7 @@ export default {
                 width: 64px;
                 padding: 0 8px;
                 text-align: center;
-                color: @text-light;
+                color: @c-header-text-light;
                 select {
                     width: 64px;
                     height: 36px;
@@ -212,17 +193,14 @@ export default {
                     -webkit-appearance: none;
                     -moz-appearance: none;
                     font-size: 14px;
-                    color: @text-light;
-                    background: @transparent;
+                    color: @c-header-text-light;
+                    background: @c-transparent;
                     cursor: pointer;
-                }
-                &:hover {
-                    background-color: @bg-translucence-light;
                 }
                 &::after {
                     content: "▼";
                     position: absolute;
-                    top: 2px;
+                    top: 1px;
                     right: 16px;
                     width: 8px;
                     height: 36px;
@@ -242,17 +220,17 @@ export default {
                     line-height: 36px;
                     padding: 0 16px;
                     font-size: 14px;
-                    color: @bg-light;
+                    color: @c-bg-header-tab;
                     border-top-left-radius: 4px;
                     border-top-right-radius: 4px;
                     cursor: pointer;
                     &.tab-active {
-                        background: @bg-light;
-                        color: @text-dark;
+                        background: @c-bg-header-tab;
+                        color: @c-header-text-dark;
                     }
                     &:hover {
-                        background: @bg-light;
-                        color: @text-dark;
+                        background: @c-bg-header-tab;
+                        color: @c-header-text-dark;
                     }
                 }
             }
@@ -271,10 +249,10 @@ export default {
                 border: none;
                 font-size: 14px;
                 border-radius: 4px;
-                color: @desc-dark;
+                color: @c-header-input-hint;
                 outline: none;
                 &:focus {
-                    color: @text-dark;
+                    color: @c-header-text-dark;
                 }
             }
             span {
@@ -290,13 +268,13 @@ export default {
                 border-top-right-radius: 4px;
                 border-bottom-right-radius: 4px;
                 box-sizing: border-box;
-                color: @text-light;
+                color: @c-header-text-light;
                 font-size: 14px;
                 text-align: center;
-                background-color: @btn-green;
+                background-color: @c-header-btn-green;
                 cursor: pointer;
                 &:hover {
-                    background-color: @btn-green-active;
+                    background-color: @c-header-btn-green-active;
                 }
             }
         }

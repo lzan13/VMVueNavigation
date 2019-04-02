@@ -19,7 +19,6 @@
             <div class="content">
                 <router-view />
             </div>
-            <Footer></Footer>
         </div>
 
     </div>
@@ -29,7 +28,6 @@
 <script>
 import "./assets/iconfont/iconfont.css";
 // 引入组件
-import Footer from "@/components/Footer.vue";
 import Search from "@/components/Search.vue";
 import Sidebar from "@/components/Sidebar.vue";
 export default {
@@ -43,7 +41,6 @@ export default {
         // 注册组件
         Sidebar,
         Search,
-        Footer,
     },
     methods: {
         switchMenu: function() {
@@ -57,7 +54,7 @@ export default {
 <style lang="less">
 #app {
     display: flex;
-    background: @bg-grey-white;
+    background: @c-bg-body;
     #app-header {
         display: none;
         position: fixed;
@@ -66,7 +63,7 @@ export default {
         width: 100%;
         height: 48px;
         line-height: 48px;
-        background: @bg-light;
+        background: @c-bg-header-light;
         .nav-shadow();
         z-index: 10;
         .app-menu {
@@ -89,12 +86,12 @@ export default {
             text-align: center;
             font-size: 14px;
             font-weight: 500px;
-            color: @title-dark;
+            color: @c-header-text-dark;
         }
     }
     #app-left {
         flex: none;
-        width: 200px;
+        width: 220px;
         position: fixed;
         top: 0;
         left: 0;
@@ -102,7 +99,7 @@ export default {
     }
     #app-right {
         flex: 1;
-        margin-left: 200px;
+        margin-left: 220px;
     }
 }
 
@@ -113,7 +110,7 @@ export default {
             display: none;
             width: 100%;
             margin-top: 48px;
-            background: @bg-translucence-dark;
+            background: @c-bg-translucence-mask;
             &.app-sidebar-show {
                 display: block;
             }

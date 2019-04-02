@@ -24,11 +24,14 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 
 <!-- 脚本 -->
 <script>
+// 引入组件
+import Footer from "@/components/Footer.vue";
 export default {
     name: "Site",
     data() {
@@ -240,7 +243,10 @@ export default {
             ],
         };
     },
-
+    components: {
+        // 注册组件
+        Footer,
+    },
     methods: {
         // test: function() {},
     },
@@ -251,26 +257,25 @@ export default {
 <style lang="less">
 #site {
     width: 100%;
-    padding-bottom: 56px;
     // 头部容器
     .container {
         margin: auto;
+        padding-bottom: 56px;
         .site-category {
             margin-top: 16px;
             .site-decoration {
                 width: 100%;
-                height: 1px;
                 margin: 36px 0 24px;
-                background: @decoration-dark;
+                border-top: 1px solid @c-site-decoration;
             }
             .site-title {
                 .iconfont {
                     font-size: 24px;
-                    color: @desc-dark;
+                    color: @c-site-category-title;
                     margin-right: 8px;
                 }
                 .site-title-text {
-                    color: @desc-dark;
+                    color: @c-site-category-title;
                     font-size: 24px;
                     font-weight: 400;
                 }
@@ -284,7 +289,7 @@ export default {
             .site-wrapper {
                 padding: 4px;
                 border-radius: 4px;
-                background: @bg-light;
+                background: @c-bg-site-card;
                 .card-shadow();
                 transition: all 0.3s ease;
                 &:hover {
@@ -292,7 +297,6 @@ export default {
                 }
                 a {
                     display: flex;
-                    text-decoration: none;
                     .site-icon-container {
                         margin: 8px;
                         width: 36px;
@@ -308,12 +312,12 @@ export default {
                         flex: 1;
                         margin: 4px;
                         .site-name {
-                            color: @title-dark;
+                            color: @c-site-card-title;
                             font-size: 14px;
-                            font-weight: 500;
+                            font-weight: 450;
                         }
                         .site-desc {
-                            color: @desc-dark;
+                            color: @c-site-card-desc;
                             font-size: 12px;
                             word-break: break-all;
                             text-overflow: ellipsis;
@@ -324,8 +328,11 @@ export default {
                         }
                     }
                     &:hover {
-                        .site-content .site-name {
-                            color: @active-link;
+                        text-decoration: none;
+                        .site-content {
+                            .site-name {
+                                color: @c-link-active;
+                            }
                         }
                     }
                 }

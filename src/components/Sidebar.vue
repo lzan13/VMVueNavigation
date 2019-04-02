@@ -55,8 +55,8 @@ export default {
                 },
                 {
                     id: "heart-fill",
-                    title: "爱心",
-                    url: "/about",
+                    title: "爱心捐赠",
+                    url: "/donate",
                 },
             ],
             categorys: [

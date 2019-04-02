@@ -11,16 +11,14 @@
         </div>
         <!-- 左边导航 -->
         <div id="app-left" :class="{'app-sidebar-show':isShowMenu}" v-on:click="switchMenu()">
-            <Sidebar></Sidebar>
+            <Sidebar />
         </div>
         <!-- 右边顶部和内容 -->
         <div id="app-right">
-            <Search></Search>
-            <div class="content">
-                <router-view />
-            </div>
+            <Search />
+            <router-view />
+            <Footer />
         </div>
-
     </div>
 </template>
 
@@ -30,6 +28,7 @@ import "./assets/iconfont/iconfont.css";
 // 引入组件
 import Search from "@/components/Search.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import Footer from "@/components/Footer.vue";
 export default {
     name: "App",
     data() {
@@ -39,8 +38,9 @@ export default {
     },
     components: {
         // 注册组件
-        Sidebar,
         Search,
+        Sidebar,
+        Footer,
     },
     methods: {
         switchMenu: function() {

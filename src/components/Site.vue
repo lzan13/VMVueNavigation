@@ -24,14 +24,12 @@
                 </div>
             </div>
         </div>
-        <Footer></Footer>
     </div>
 </template>
 
 <!-- 脚本 -->
 <script>
 // 引入组件
-import Footer from "@/components/Footer.vue";
 export default {
     name: "Site",
     data() {
@@ -245,7 +243,6 @@ export default {
     },
     components: {
         // 注册组件
-        Footer,
     },
     methods: {
         // test: function() {},

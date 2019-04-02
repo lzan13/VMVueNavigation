@@ -24,12 +24,17 @@
 // 背景色
 @c-bg-body: #f5f8f5;
 @c-bg-translucence-mask: rgba(61, 61, 61, 0.5);
- 
- 
- /**
-  * 装饰间隔颜色
-  */
- @c-decoration: rgba(61, 61, 61, 0.08);
+
+
+
+/**
+ * 通用页面颜色
+ */
+@c-bg-page:#fefefe;
+@c-page-decoration: rgba(61, 61, 61, 0.08);
+@c-page-title-bottom: #e8e8e8;
+@c-page-title: #3d3d3d;
+@c-page-content: #909090;
 
 
 /**
@@ -48,7 +53,7 @@
 /**
  * 底部颜色
  */
-@c-bg-footer:rgba(rgba(212, 228, 212, 0.24));
+@c-bg-footer:rgba(rgba(226, 226, 226, 0.24));
 @c-footer-decoration: #d9e3ea;
 @c-footer-text: #909090;
 
@@ -92,6 +97,10 @@
 }
 .card-shadow-hover(){
   .box-shadow(0px, 5px, 36px, -5px, 0.25)
+}
+
+.page-shadow(){
+  .box-shadow(0px, 0px, 36px, -2px, 0.08)
 }
   
 
